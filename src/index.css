@@ -18,3 +18,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.choose-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+.choose-bar__item {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+.icon {
+  font-size: 2rem;
+}

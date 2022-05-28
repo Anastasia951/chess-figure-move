@@ -1,11 +1,26 @@
 const initialState = {
-  knightPosition: [0, 0]
+  figurePosition: [0, 0],
+  figures: {
+    king: '♔',
+    queen: '♕',
+    rook: '♖',
+    bishop: '♗',
+    knight: '♘',
+    // pawn: '♙'
+  },
+  currentFigure: '♔'
 }
 function rootReducer(state = initialState, { type, payload }) {
   switch (type) {
     case 'SET_KNIGHT_POSITION':
       return {
-        knightPosition: payload
+        ...state,
+        figurePosition: payload
+      }
+    case 'SET_ACTIVE_FIGURE':
+      return {
+        ...state,
+        currentFigure: payload
       }
     default:
       return state

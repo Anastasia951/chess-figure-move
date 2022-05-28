@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import { ItemTypes } from '../dnd/constants'
-import Knight from './Knight'
+import Figure from './Figure'
 
-export default function Square({ x, y, isKnightHere, isBlack, checkPosition, onCanDrop, knightPosition }) {
+export default function Square({ x, y, isKnightHere, isBlack, checkPosition, onCanDrop, figurePosition, currentFigure }) {
   const color = isBlack ? 'black' : 'white'
   const stroke = isBlack ? 'white' : 'black'
 
@@ -32,7 +32,7 @@ export default function Square({ x, y, isKnightHere, isBlack, checkPosition, onC
         canDrop: !!monitor.canDrop()
       })
     }),
-    [x, y, knightPosition]
+    [x, y, figurePosition, currentFigure]
   )
 
   return (
@@ -44,6 +44,6 @@ export default function Square({ x, y, isKnightHere, isBlack, checkPosition, onC
             : styles.over
           : styles.square
       }
-    >{isKnightHere ? <Knight /> : null}</div>
+    >{isKnightHere ? <Figure /> : null}</div>
   )
 }
